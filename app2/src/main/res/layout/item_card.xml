@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvAddress"
+            android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@color/primary_dark"
@@ -34,17 +34,17 @@
             tools:text="г. Нур-Султан, ул. Сейфуллина 22" />
 
         <ImageView
-            android:id="@+id/ivLocation"
+            android:id="@+id/tvTitleIcon"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingEnd="16dp"
             android:src="@drawable/ic_location_on_black_24dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvAddress"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvAddress" />
+            app:layout_constraintTop_toTopOf="@id/tvTitle" />
 
         <TextView
-            android:id="@+id/tvBranch"
+            android:id="@+id/tvSubTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -56,7 +56,7 @@
             app:layout_constraintBottom_toTopOf="@id/tvPhoneText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             tools:text="Руководитель отдела Сарыаркинского района по социальному обеспечению" />
 
         <ImageView
@@ -81,24 +81,24 @@
             android:focusable="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Caption"
             android:textColor="@color/primary_light"
-            app:layout_constraintBottom_toTopOf="@id/tvScheduleText"
+            app:layout_constraintBottom_toTopOf="@id/ivLocation"
             app:layout_constraintStart_toEndOf="@id/tvPhoneText"
             tools:text="8-7172-32-35-01" />
 
 
         <ImageView
-            android:id="@+id/tvScheduleText"
+            android:id="@+id/ivLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_access_time_black_24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSchedule"
+            android:src="@drawable/ic_location_on_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddress"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvSchedule" />
+            app:layout_constraintTop_toTopOf="@id/tvAddress" />
 
         <TextView
-            android:id="@+id/tvSchedule"
+            android:id="@+id/tvAddress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

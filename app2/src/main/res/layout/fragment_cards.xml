@@ -69,7 +69,7 @@
         ads:layout_constraintLeft_toLeftOf="parent"
         ads:layout_constraintRight_toRightOf="parent"
         ads:layout_constraintTop_toBottomOf="@+id/cardViewSearch"
-        tools:listitem="@layout/item_makal" />
+        tools:listitem="@layout/item_card" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

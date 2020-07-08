@@ -13,15 +13,15 @@ import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.dd.domain.model.HospitalModel
 import com.dd.hospitals.R
-import kotlinx.android.synthetic.main.item_makal.view.*
+import kotlinx.android.synthetic.main.item_card.view.*
 
 class HospitalAdapter(private val context: Context,
                       override val listItems: MutableList<HospitalModel> = mutableListOf(),
                       private val itemListener: (HospitalModel) -> Unit) : EmaRecyclerAdapter<HospitalModel>() {
-    override val layoutItemId: Int = com.dd.hospitals.R.layout.item_makal
+    override val layoutItemId: Int = com.dd.hospitals.R.layout.item_card
 
     override fun View.bind(item: HospitalModel, viewType: Int) {
-        tvBranch.text = item.branch
+        tvSubTitle.text = item.branch
         tvPhone.text = item.phone
         tvAddress.text = item.address
 

@@ -13,7 +13,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.dd.domain.model.HospitalModel
 import com.dd.hospitals.R
-import kotlinx.android.synthetic.main.item_makal.view.*
+import kotlinx.android.synthetic.main.item_card.view.*
 import kotlinx.android.synthetic.main.item_search.view.*
 
 class SearchAdapter(private val context: Context,
@@ -25,7 +25,7 @@ class SearchAdapter(private val context: Context,
     private fun getLayoutItemId(): Int {
         return when (adapterType) {
             SearchState.AdapterType.HINT -> R.layout.item_search
-            SearchState.AdapterType.MAKALS -> R.layout.item_makal
+            SearchState.AdapterType.MAKALS -> R.layout.item_card
         }
     }
 
@@ -40,10 +40,10 @@ class SearchAdapter(private val context: Context,
             }
 
             SearchState.AdapterType.MAKALS -> {
-                tvBranch.text = item.branch
+                tvSubTitle.text = item.branch
                 tvPhone.text = item.phone
                 tvAddress.text = item.address
-                tvSchedule.text = item.region
+                tvTitle.text = item.region
 
                 itemListener.invoke(item)
 

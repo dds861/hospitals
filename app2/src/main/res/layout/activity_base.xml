@@ -33,7 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_below="@id/emaAppBarLayout"
-        ads:layout="@layout/fragment_category"
+        ads:layout="@layout/fragment_list"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/viewDivider"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emaAppBarLayout"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_list" />
 
     <View
         android:id="@+id/viewDivider"

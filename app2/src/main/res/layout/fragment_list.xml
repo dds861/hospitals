@@ -16,7 +16,7 @@
         ads:layout_constraintEnd_toEndOf="parent"
         ads:layout_constraintTop_toTopOf="parent"
         ads:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/item_category" />
+        tools:listitem="@layout/item_in_list" />
 
 
 

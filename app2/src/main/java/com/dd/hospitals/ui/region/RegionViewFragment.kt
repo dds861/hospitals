@@ -5,14 +5,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.carmabs.ema.core.state.EmaExtraData
 import com.dd.hospitals.base.BaseToolbarsFragment
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
-import kotlinx.android.synthetic.main.fragment_category.*
+import kotlinx.android.synthetic.main.fragment_list.*
 import org.kodein.di.generic.instance
 
 class RegionViewFragment : BaseToolbarsFragment<RegionState, RegionViewModel, RegionNavigator.Navigation>() {
     /**
      * Default variables
      */
-    override val layoutId: Int = com.dd.hospitals.R.layout.fragment_category
+    override val layoutId: Int = com.dd.hospitals.R.layout.fragment_list
     override val navigator: RegionNavigator by instance()
     override val viewModelSeed: RegionViewModel by instance()
 

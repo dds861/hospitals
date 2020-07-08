@@ -10,7 +10,7 @@ import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.dd.hospitals.base.BaseToolbarsFragment
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
-import kotlinx.android.synthetic.main.fragment_makal.*
+import kotlinx.android.synthetic.main.fragment_cards.*
 import org.kodein.di.generic.instance
 
 class HospitalViewFragment
@@ -18,7 +18,7 @@ class HospitalViewFragment
     /**
      * Default variables
      */
-    override val layoutId: Int = com.dd.hospitals.R.layout.fragment_makal
+    override val layoutId: Int = com.dd.hospitals.R.layout.fragment_cards
     override val navigator: HospitalNavigator by instance()
     override val viewModelSeed: HospitalViewModel by instance()
 
