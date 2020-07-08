@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import com.carmabs.ema.android.ui.EmaFragmentActivity
 import com.dd.hospitals.ui.main.HomeNavigator
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
-import com.dd.hospitals.ui.makal.HospitalNavigator
+import com.dd.hospitals.ui.hospital.HospitalNavigator
 import com.dd.hospitals.ui.region.RegionNavigator
 import com.dd.hospitals.ui.search.SearchNavigator
 import com.dd.hospitals.ui.section.SectionNavigator

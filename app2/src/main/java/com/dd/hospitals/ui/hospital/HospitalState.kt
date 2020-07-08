@@ -1,4 +1,4 @@
-package com.dd.hospitals.ui.makal
+package com.dd.hospitals.ui.hospital
 
 import com.carmabs.ema.core.constants.INT_ZERO
 import com.carmabs.ema.core.constants.STRING_EMPTY

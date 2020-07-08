@@ -7,7 +7,7 @@ import com.dd.hospitals.DIALOG_TAG_LOADING
 import com.dd.hospitals.DIALOG_TAG_SIMPLE
 import com.dd.hospitals.dialog.loading.LoadingDialogProvider
 import com.dd.hospitals.dialog.simple.SimpleDialogProvider
-import com.dd.hospitals.ui.makal.HospitalViewModel
+import com.dd.hospitals.ui.hospital.HospitalViewModel
 import com.dd.hospitals.ui.region.RegionViewModel
 import com.dd.hospitals.ui.search.SearchViewModel
 import com.dd.hospitals.ui.section.SectionViewModel

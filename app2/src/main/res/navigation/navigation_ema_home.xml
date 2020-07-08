@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/makalViewFragment"
-        android:name="com.dd.hospitals.ui.makal.HospitalViewFragment"
+        android:name="com.dd.hospitals.ui.hospital.HospitalViewFragment"
         android:label="MakalViewFragment" />
     <fragment
         android:id="@+id/searchViewFragment"

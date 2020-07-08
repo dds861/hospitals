@@ -1,4 +1,4 @@
-package com.dd.hospitals.ui.makal
+package com.dd.hospitals.ui.hospital
 
 import com.dd.domain.manager.ResourceManager
 import com.dd.domain.model.HospitalModel

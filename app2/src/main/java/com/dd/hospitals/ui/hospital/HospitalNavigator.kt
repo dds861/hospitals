@@ -1,4 +1,4 @@
-package com.dd.hospitals.ui.makal
+package com.dd.hospitals.ui.hospital
 
 import android.app.Activity
 import androidx.navigation.NavController

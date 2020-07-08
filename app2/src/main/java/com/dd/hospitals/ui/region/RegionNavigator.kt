@@ -6,7 +6,7 @@ import com.carmabs.ema.core.navigator.EmaBaseNavigator
 import com.carmabs.ema.core.navigator.EmaNavigationState
 import com.dd.hospitals.base.BaseNavigator
 import com.dd.hospitals.R
-import com.dd.hospitals.ui.makal.HospitalState
+import com.dd.hospitals.ui.hospital.HospitalState
 
 class RegionNavigator(
         override val navController: NavController,

@@ -7,7 +7,7 @@ import com.dd.domain.usecase.GetLocalRegionUseCase
 import com.dd.hospitals.base.BaseToolbarsViewModel
 import com.dd.hospitals.model.ToolbarModel
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
-import com.dd.hospitals.ui.makal.HospitalState
+import com.dd.hospitals.ui.hospital.HospitalState
 
 class RegionViewModel(
         private val resourceManager: ResourceManager,
