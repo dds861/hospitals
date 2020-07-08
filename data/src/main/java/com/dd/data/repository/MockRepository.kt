@@ -1,26 +1,22 @@
 package com.dd.data.repository
 
 
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseMakalModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.ResponseCategoryModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.model.ResponseHospitalModel
+import com.dd.domain.model.RequestRegionModel
+import com.dd.domain.model.ResponseRegionModel
 import com.dd.domain.repository.Repository
-import kotlinx.coroutines.delay
-import javax.security.auth.login.LoginException
-
-
 
 class MockRepository : Repository {
 
-    override suspend fun getCategory(requestCategoryModel: RequestCategoryModel): ResponseCategoryModel {
-        return ResponseCategoryModel(
+    override suspend fun getRegion(requestRegionModel: RequestRegionModel): ResponseRegionModel {
+        return ResponseRegionModel(
                 result = "AnyText"
         )
     }
 
-    override suspend fun getMakal(requestMakalModel: RequestMakalModel): ResponseMakalModel {
-        return ResponseMakalModel(
+    override suspend fun getHospital(requestHospitalModel: RequestHospitalModel): ResponseHospitalModel {
+        return ResponseHospitalModel(
                 result = "AnyText"
         )
     }

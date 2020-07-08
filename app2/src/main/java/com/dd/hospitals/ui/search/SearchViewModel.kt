@@ -4,16 +4,16 @@ import com.dd.hospitals.base.BaseToolbarsViewModel
 import com.dd.hospitals.model.ToolbarModel
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import com.dd.domain.manager.ResourceManager
-import com.dd.domain.model.MakalModel
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.usecase.GetLocalMakalByCategoryIdUseCase
-import com.dd.domain.usecase.GetLocalMakalByQueryTextUseCase
+import com.dd.domain.model.HospitalModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.usecase.GetLocalHospitalByCategoryIdUseCase
+import com.dd.domain.usecase.GetLocalHospitalByQueryTextUseCase
 import java.util.*
 
 class SearchViewModel(
         val resourceManager: ResourceManager,
-        private val getLocalMakalByCategoryIdUseCase: GetLocalMakalByCategoryIdUseCase,
-        private val getLocalMakalByQueryTextUseCase: GetLocalMakalByQueryTextUseCase
+        private val getLocalHospitalByCategoryIdUseCase: GetLocalHospitalByCategoryIdUseCase,
+        private val getLocalHospitalByQueryTextUseCase: GetLocalHospitalByQueryTextUseCase
 ) : BaseToolbarsViewModel<SearchState, SearchNavigator.Navigation>() {
     /**
      * Default variables
@@ -29,10 +29,10 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalMakalByCategoryIdUseCase.execute(RequestMakalModel(categoryId = it.categoryId))
+                        val responseMakalModel = getLocalHospitalByCategoryIdUseCase.execute(RequestHospitalModel(hospitalId = it.categoryId))
                         updateToNormalState {
                             copy(
-                                    listMakals = responseMakalModel.list
+                                    listHospitals = responseMakalModel.list
                             )
                         }
                     },
@@ -69,10 +69,10 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalMakalByQueryTextUseCase.execute(RequestMakalModel(queryText = queryText))
+                        val responseMakalModel = getLocalHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
                         updateToNormalState {
                             copy(
-                                    listMakals = filterToolbarHintsByQueryText(queryText, responseMakalModel.list),
+                                    listHospitals = filterToolbarHintsByQueryText(queryText, responseMakalModel.list),
                                     adapterType = SearchState.AdapterType.HINT
                             )
                         }
@@ -91,10 +91,10 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalMakalByQueryTextUseCase.execute(RequestMakalModel(queryText = queryText))
+                        val responseMakalModel = getLocalHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
                         updateToNormalState {
                             copy(
-                                    listMakals = filterToolbarMakalsByQueryText(queryText, responseMakalModel.list),
+                                    listHospitals = filterToolbarMakalsByQueryText(queryText, responseMakalModel.list),
 //                                    listMakals = responseMakalModel.list,
                                     adapterType = SearchState.AdapterType.MAKALS
                             )
@@ -106,9 +106,9 @@ class SearchViewModel(
         }
     }
 
-    private fun filterToolbarHintsByQueryText(queryText: String, list: List<MakalModel>): List<MakalModel> {
+    private fun filterToolbarHintsByQueryText(queryText: String, list: List<HospitalModel>): List<HospitalModel> {
         if (queryText.isNotEmpty()) {
-            val listMakalModels: MutableList<MakalModel> = mutableListOf()
+            val listHospitalModels: MutableList<HospitalModel> = mutableListOf()
 
             list.map { makalModel ->
                 makalModel.address?.toLowerCase(Locale.ROOT)
@@ -120,14 +120,14 @@ class SearchViewModel(
                         ?.replace(" -", "")
                         ?.split(" ")
                         ?.filter { s -> s.contains(queryText) }
-                        ?.map { MakalModel(address = it) }
+                        ?.map { HospitalModel(address = it) }
             }.map { listMakals ->
                 listMakals?.map {
-                    listMakalModels.add(it)
+                    listHospitalModels.add(it)
                 }
             }
 
-            return listMakalModels.distinct()
+            return listHospitalModels.distinct()
                     .sortedByDescending { it.address }
                     .sortedBy { it.address?.length }
         } else {
@@ -135,9 +135,9 @@ class SearchViewModel(
         }
     }
 
-    private fun filterToolbarMakalsByQueryText(queryText: String, list: List<MakalModel>): List<MakalModel> {
+    private fun filterToolbarMakalsByQueryText(queryText: String, list: List<HospitalModel>): List<HospitalModel> {
         return if (queryText.isNotEmpty()) {
-            val listMakalModels: MutableList<MakalModel> = mutableListOf()
+            val listHospitalModels: MutableList<HospitalModel> = mutableListOf()
 
             list.map { makalModel ->
                 val addressText = makalModel.address
@@ -147,12 +147,12 @@ class SearchViewModel(
                 }
                 if (indexBeforeQueryText != null) {
                     if (indexBeforeQueryText < 0 || (indexBeforeQueryText >= 0 && address == ' ')) {
-                        listMakalModels.add(makalModel)
+                        listHospitalModels.add(makalModel)
                     }
                 }
             }
 
-            listMakalModels.distinct()
+            listHospitalModels.distinct()
                     .sortedByDescending { it.address }
                     .sortedBy { it.address?.length }
         } else {

@@ -13,24 +13,24 @@ import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import kotlinx.android.synthetic.main.fragment_makal.*
 import org.kodein.di.generic.instance
 
-class MakalViewFragment
-    : BaseToolbarsFragment<MakalState, MakalViewModel, MakalNavigator.Navigation>() {
+class HospitalViewFragment
+    : BaseToolbarsFragment<HospitalState, HospitalViewModel, HospitalNavigator.Navigation>() {
     /**
      * Default variables
      */
     override val layoutId: Int = com.dd.hospitals.R.layout.fragment_makal
-    override val navigator: MakalNavigator by instance()
-    override val viewModelSeed: MakalViewModel by instance()
+    override val navigator: HospitalNavigator by instance()
+    override val viewModelSeed: HospitalViewModel by instance()
 
     /**
      * Custom variables
      */
-    private lateinit var vm: MakalViewModel
+    private lateinit var vm: HospitalViewModel
 
     /**
      * Default functions
      */
-    override fun onInitializedWithToolbarsManagement(viewModel: MakalViewModel, mainToolbarViewModel: MainToolbarsViewModel) {
+    override fun onInitializedWithToolbarsManagement(viewModel: HospitalViewModel, mainToolbarViewModel: MainToolbarsViewModel) {
         vm = viewModel
         setupRecycler()
     }
@@ -38,12 +38,12 @@ class MakalViewFragment
     override fun onSingleEvent(data: EmaExtraData) {
     }
 
-    override fun onNormal(data: MakalState) {
+    override fun onNormal(data: HospitalState) {
         loadRecyclerViews(data)
         setupListeners(data)
     }
 
-    private fun setupListeners(data: MakalState) {
+    private fun setupListeners(data: HospitalState) {
         et_search.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
@@ -75,9 +75,9 @@ class MakalViewFragment
         rvMakals.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
     }
 
-    private fun loadRecyclerViews(data: MakalState) {
-        rvMakals.adapter = data.listMakals.toMutableList().let { it ->
-            MakalAdapter(requireContext(), listItems = it) {
+    private fun loadRecyclerViews(data: HospitalState) {
+        rvMakals.adapter = data.listHospitals.toMutableList().let { it ->
+            HospitalAdapter(requireContext(), listItems = it) {
                 viewModelSeed.onActionItemClicked(it)
             }
         }

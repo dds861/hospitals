@@ -54,7 +54,7 @@ class SearchViewFragment
     }
 
     private fun loadRecyclerViews(data: SearchState) {
-        rvSearch.adapter = data.listMakals.toMutableList().let { mutableList ->
+        rvSearch.adapter = data.listHospitals.toMutableList().let { mutableList ->
             SearchAdapter(context = requireContext(), listItems = mutableList, adapterType = data.adapterType) { makalModel ->
                 when (data.adapterType) {
                     SearchState.AdapterType.HINT -> {

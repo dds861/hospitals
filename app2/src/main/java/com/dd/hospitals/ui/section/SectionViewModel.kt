@@ -1,18 +1,18 @@
-package com.dd.hospitals.ui.category
+package com.dd.hospitals.ui.section
 
+import com.dd.domain.manager.ResourceManager
+import com.dd.domain.model.RequestSectionModel
+import com.dd.domain.model.SectionModel
+import com.dd.domain.usecase.GetLocalSectionUseCase
 import com.dd.hospitals.base.BaseToolbarsViewModel
 import com.dd.hospitals.model.ToolbarModel
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
-import com.dd.hospitals.ui.makal.MakalState
-import com.dd.domain.manager.ResourceManager
-import com.dd.domain.model.CategoryModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.usecase.GetLocalCategoryUseCase
+import com.dd.hospitals.ui.region.RegionState
 
-class CategoryViewModel(
+class SectionViewModel(
         private val resourceManager: ResourceManager,
-        private val getLocalCategoryUseCase: GetLocalCategoryUseCase
-) : BaseToolbarsViewModel<CategoryState, CategoryNavigator.Navigation>() {
+        private val getLocalSectionUseCase: GetLocalSectionUseCase
+) : BaseToolbarsViewModel<SectionState, SectionNavigator.Navigation>() {
     /**
      * Constants
      */
@@ -23,7 +23,7 @@ class CategoryViewModel(
     /**
      * Default variables
      */
-    override val initialViewState: CategoryState = CategoryState()
+    override val initialViewState: SectionState = SectionState()
     /**
      * Custom variables
      */
@@ -49,10 +49,10 @@ class CategoryViewModel(
     override fun onStartFirstTime(statePreloaded: Boolean) {
         executeUseCaseWithException(
                 {
-                    val responseCategoryModel = getLocalCategoryUseCase.execute(RequestCategoryModel())
+                    val responseCategoryModel = getLocalSectionUseCase.execute(RequestSectionModel())
                     updateToNormalState {
                         copy(
-                                listCategories = responseCategoryModel.list
+                                listSections = responseCategoryModel.list
                         )
                     }
                 },
@@ -64,13 +64,10 @@ class CategoryViewModel(
     /**
      * Custom functions
      */
-    fun onActionCategoryClick(categoryModel: CategoryModel) {
+    fun onActionCategoryClick(sectionModel: SectionModel) {
         navigate(
-                CategoryNavigator.Navigation.Makal(
-                        MakalState(
-                                categoryId = categoryModel.category_id,
-                                categoryTitle = categoryModel.category_text
-                        )
+                SectionNavigator.Navigation.ToRegion(
+                        RegionState(sectionIdSelected = sectionModel.id)
                 )
         )
     }

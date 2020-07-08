@@ -5,10 +5,10 @@ import androidx.navigation.NavController
 import com.carmabs.ema.core.navigator.EmaNavigationState
 import com.dd.hospitals.base.BaseNavigator
 
-class MakalNavigator(
+class HospitalNavigator(
         override val navController: NavController,
         private val activity: Activity)
-    : BaseNavigator<MakalNavigator.Navigation>() {
+    : BaseNavigator<HospitalNavigator.Navigation>() {
     sealed class Navigation : EmaNavigationState {
 
     }

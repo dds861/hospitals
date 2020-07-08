@@ -1,4 +1,4 @@
-package com.dd.hospitals.ui.category
+package com.dd.hospitals.ui.region
 
 import android.app.Activity
 import androidx.navigation.NavController
@@ -6,23 +6,23 @@ import com.carmabs.ema.core.navigator.EmaBaseNavigator
 import com.carmabs.ema.core.navigator.EmaNavigationState
 import com.dd.hospitals.base.BaseNavigator
 import com.dd.hospitals.R
-import com.dd.hospitals.ui.makal.MakalState
+import com.dd.hospitals.ui.makal.HospitalState
 
-class CategoryNavigator(
+class RegionNavigator(
         override val navController: NavController,
         private val activity: Activity)
-    : BaseNavigator<CategoryNavigator.Navigation>() {
+    : BaseNavigator<RegionNavigator.Navigation>() {
     sealed class Navigation : EmaNavigationState {
-        class Makal(private val makalState: MakalState) : Navigation() {
+        class Makal(private val hospitalState: HospitalState) : Navigation() {
             override fun navigateWith(navigator: EmaBaseNavigator<out EmaNavigationState>) {
-                val nav = navigator as CategoryNavigator
-                nav.toMakal(makalState)
+                val nav = navigator as RegionNavigator
+                nav.toMakal(hospitalState)
             }
         }
     }
 
-    private fun toMakal(makalState: MakalState) {
+    private fun toMakal(hospitalState: HospitalState) {
         navigateWithAction(R.id.action_categoryViewFragment_to_makalViewFragment,
-                addInputState(makalState))
+                addInputState(hospitalState))
     }
 }

@@ -1,22 +1,22 @@
 package com.dd.hospitals.ui.makal
 
 import com.dd.domain.manager.ResourceManager
-import com.dd.domain.model.MakalModel
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.usecase.GetLocalMakalByCategoryIdUseCase
+import com.dd.domain.model.HospitalModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.usecase.GetLocalHospitalByCategoryIdUseCase
 import com.dd.hospitals.base.BaseToolbarsViewModel
 import com.dd.hospitals.model.ToolbarModel
 import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import java.util.*
 
-class MakalViewModel(
+class HospitalViewModel(
         val resourceManager: ResourceManager,
-        private val getLocalMakalByCategoryIdUseCase: GetLocalMakalByCategoryIdUseCase
-) : BaseToolbarsViewModel<MakalState, MakalNavigator.Navigation>() {
+        private val getLocalHospitalByCategoryIdUseCase: GetLocalHospitalByCategoryIdUseCase
+) : BaseToolbarsViewModel<HospitalState, HospitalNavigator.Navigation>() {
     /**
      * Default variables
      */
-    override val initialViewState: MakalState = MakalState()
+    override val initialViewState: HospitalState = HospitalState()
     /**
      * Custom variables
      */
@@ -27,10 +27,10 @@ class MakalViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalMakalByCategoryIdUseCase.execute(RequestMakalModel(categoryId = it.categoryId))
+                        val responseMakalModel = getLocalHospitalByCategoryIdUseCase.execute(RequestHospitalModel(hospitalId = it.categoryId))
                         updateToNormalState {
                             copy(
-                                    listMakals = responseMakalModel.list
+                                    listHospitals = responseMakalModel.list
                             )
                         }
                     },
@@ -59,18 +59,18 @@ class MakalViewModel(
     /**
      * Custom functions
      */
-    fun onActionItemClicked(makalModel: MakalModel) {
+    fun onActionItemClicked(hospitalModel: HospitalModel) {
     }
 
     fun onActionSearch(queryText: String) {
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalMakalByCategoryIdUseCase.execute(RequestMakalModel(categoryId = it.categoryId))
+                        val responseMakalModel = getLocalHospitalByCategoryIdUseCase.execute(RequestHospitalModel(hospitalId = it.categoryId))
 
                         updateToNormalState {
                             copy(
-                                    listMakals = responseMakalModel.list.filter {
+                                    listHospitals = responseMakalModel.list.filter {
                                         it.branch
                                                 .toLowerCase(Locale.ROOT)
                                                 .contains(queryText.toLowerCase(Locale.ROOT))

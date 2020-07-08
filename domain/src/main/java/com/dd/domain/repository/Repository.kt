@@ -1,14 +1,14 @@
 package com.dd.domain.repository
 
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseMakalModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.ResponseCategoryModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.model.RequestRegionModel
+import com.dd.domain.model.ResponseHospitalModel
+import com.dd.domain.model.ResponseRegionModel
 
 
 interface Repository {
 
-    suspend fun getCategory(requestCategoryModel: RequestCategoryModel): ResponseCategoryModel
+    suspend fun getRegion(requestRegionModel: RequestRegionModel): ResponseRegionModel
 
-    suspend fun getMakal(requestMakalModel: RequestMakalModel): ResponseMakalModel
+    suspend fun getHospital(requestHospitalModel: RequestHospitalModel): ResponseHospitalModel
 }

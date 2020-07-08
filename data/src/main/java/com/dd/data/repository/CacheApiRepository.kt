@@ -1,19 +1,19 @@
 package com.dd.data.repository
 
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseMakalModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.ResponseCategoryModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.model.ResponseHospitalModel
+import com.dd.domain.model.RequestRegionModel
+import com.dd.domain.model.ResponseRegionModel
 import com.dd.domain.repository.Repository
 
 class CacheApiRepository(private val repository: Repository) : Repository {
 
-    override suspend fun getCategory(requestCategoryModel: RequestCategoryModel): ResponseCategoryModel {
-        return repository.getCategory(requestCategoryModel)
+    override suspend fun getRegion(requestRegionModel: RequestRegionModel): ResponseRegionModel {
+        return repository.getRegion(requestRegionModel)
     }
 
-    override suspend fun getMakal(requestMakalModel: RequestMakalModel): ResponseMakalModel {
-        return repository.getMakal(requestMakalModel)
+    override suspend fun getHospital(requestHospitalModel: RequestHospitalModel): ResponseHospitalModel {
+        return repository.getHospital(requestHospitalModel)
     }
 }
 

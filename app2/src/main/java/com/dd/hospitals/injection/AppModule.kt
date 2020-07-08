@@ -11,17 +11,19 @@ import org.kodein.di.generic.singleton
 fun appInjection(application: Application) = Kodein.Module(name = "AppModule") {
     bind<Application>() with singleton { application }
 
-    bind<GetCategoryUseCase>() with provider { GetCategoryUseCase(instance()) }
+    bind<GetRegionUseCase>() with provider { GetRegionUseCase(instance()) }
 
-    bind<GetMakalUseCase>() with provider { GetMakalUseCase(instance()) }
+    bind<GetHospitalUseCase>() with provider { GetHospitalUseCase(instance()) }
 
-    bind<GetLocalCategoryUseCase>() with provider { GetLocalCategoryUseCase(instance()) }
+    bind<GetLocalRegionUseCase>() with provider { GetLocalRegionUseCase(instance()) }
 
-    bind<GetLocalMakalUseCase>() with provider { GetLocalMakalUseCase(instance()) }
+    bind<GetLocalSectionUseCase>() with provider { GetLocalSectionUseCase(instance()) }
 
-    bind<GetLocalMakalByCategoryIdUseCase>() with provider { GetLocalMakalByCategoryIdUseCase(instance()) }
+    bind<GetLocalHospitalUseCase>() with provider { GetLocalHospitalUseCase(instance()) }
 
-    bind<GetLocalMakalByQueryTextUseCase>() with provider { GetLocalMakalByQueryTextUseCase(instance()) }
+    bind<GetLocalHospitalByCategoryIdUseCase>() with provider { GetLocalHospitalByCategoryIdUseCase(instance()) }
 
-    bind<GetLocalRandomMakalUseCase>() with provider { GetLocalRandomMakalUseCase(instance()) }
+    bind<GetLocalHospitalByQueryTextUseCase>() with provider { GetLocalHospitalByQueryTextUseCase(instance()) }
+
+    bind<GetLocalRandomHospitalUseCase>() with provider { GetLocalRandomHospitalUseCase(instance()) }
 }

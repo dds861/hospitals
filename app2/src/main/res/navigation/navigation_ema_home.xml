@@ -2,12 +2,12 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/graphHome"
-    app:startDestination="@id/categoryViewFragment">
+    app:startDestination="@id/sectionViewFragment">
 
 
     <fragment
         android:id="@+id/categoryViewFragment"
-        android:name="com.dd.hospitals.ui.category.CategoryViewFragment"
+        android:name="com.dd.hospitals.ui.region.RegionViewFragment"
         android:label="CategoryViewFragment">
         <action
             android:id="@+id/action_categoryViewFragment_to_makalViewFragment"
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/makalViewFragment"
-        android:name="com.dd.hospitals.ui.makal.MakalViewFragment"
+        android:name="com.dd.hospitals.ui.makal.HospitalViewFragment"
         android:label="MakalViewFragment" />
     <fragment
         android:id="@+id/searchViewFragment"
@@ -32,6 +32,14 @@
         app:exitAnim="@anim/exit_to_left"
         app:popEnterAnim="@anim/enter_from_left"
         app:popExitAnim="@anim/exit_to_right" />
+    <fragment
+        android:id="@+id/sectionViewFragment"
+        android:name="com.dd.hospitals.ui.section.SectionViewFragment"
+        android:label="SectionViewFragment" >
+        <action
+            android:id="@+id/action_sectionViewFragment_to_categoryViewFragment"
+            app:destination="@id/categoryViewFragment" />
+    </fragment>
 
 
 </navigation>

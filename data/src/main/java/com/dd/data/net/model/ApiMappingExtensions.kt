@@ -1,23 +1,23 @@
 package com.dd.data.net.model
 
 
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseMakalModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.ResponseCategoryModel
+import com.dd.domain.model.RequestHospitalModel
+import com.dd.domain.model.RequestRegionModel
+import com.dd.domain.model.ResponseHospitalModel
+import com.dd.domain.model.ResponseRegionModel
 
-fun ResponseCategoryApi.toDomainModel(): ResponseCategoryModel = ResponseCategoryModel(
+fun ResponseCategoryApi.toDomainModel(): ResponseRegionModel = ResponseRegionModel(
         result = this.result
 )
 
-fun RequestCategoryModel.toDataModel(): RequestCategoryApi = RequestCategoryApi(
-        default = this.default
+fun RequestRegionModel.toDataModel(): RequestCategoryApi = RequestCategoryApi(
+        default = this.name
 )
 
-fun ResponseMakalApi.toDomainModel(): ResponseMakalModel = ResponseMakalModel(
+fun ResponseMakalApi.toDomainModel(): ResponseHospitalModel = ResponseHospitalModel(
         result = this.result
 )
 
-fun RequestMakalModel.toDataModel(): RequestMakalApi = RequestMakalApi(
+fun RequestHospitalModel.toDataModel(): RequestMakalApi = RequestMakalApi(
         default = this.default
 )

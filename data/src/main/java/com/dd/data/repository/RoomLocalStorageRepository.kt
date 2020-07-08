@@ -7,10 +7,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.dd.data.BuildConfig
 import com.dd.data.db.MakalDatabase
 import com.dd.data.db.entities.toDomainModel
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseCategoryModel
-import com.dd.domain.model.ResponseMakalModel
+import com.dd.domain.model.*
 import com.dd.domain.repository.LocalStorageRepository
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SQLiteException
@@ -29,7 +26,7 @@ class RoomLocalStorageRepository(
                 context.applicationContext,
                 MakalDatabase::class.java,
                 BuildConfig.DB_NAME)
-        build.createFromAsset("database/quotes.db")
+        build.createFromAsset("database/hospitals.db")
 //        build.fallbackToDestructiveMigration()
 //        build.addMigrations(MIGRATION_1_2)
         build.fallbackToDestructiveMigration()
@@ -70,23 +67,27 @@ class RoomLocalStorageRepository(
         }
     }
 
-    override fun getAllCategories(request: RequestCategoryModel): ResponseCategoryModel {
-        return db.categoryDao().getAllCategories().toDomainModel()
+    override fun getAllRegions(request: RequestRegionModel): ResponseRegionModel {
+        return db.regionDao().getAllRegions().toDomainModel()
     }
 
-    override fun getAllMakals(request: RequestMakalModel): ResponseMakalModel {
-        return db.makalDao().getAllMakals().toDomainModel()
+    override fun getAllSections(request: RequestSectionModel): ResponseSectionModel {
+        return db.sectionDao().getAllSections().toDomainModel()
     }
 
-    override fun getMakalsByCategoryId(request: RequestMakalModel): ResponseMakalModel {
-        return db.makalDao().getMakalsByCategoryId(request.categoryId).toDomainModel()
+    override fun getAllHospitals(request: RequestHospitalModel): ResponseHospitalModel {
+        return db.hospitalDao().getAllHospitals().toDomainModel()
     }
 
-    override fun getMakalsByQueryText(request: RequestMakalModel): ResponseMakalModel {
-        return db.makalDao().getMakalsByQueryText(request.queryText).toDomainModel()
+    override fun getHospitalsByCategoryId(request: RequestHospitalModel): ResponseHospitalModel {
+        return db.hospitalDao().getHospitalsByCategoryId(request.hospitalId).toDomainModel()
     }
 
-    override fun getRandomMakal(): ResponseMakalModel {
-        return db.makalDao().getRandomMakal().toDomainModel()
+    override fun getHospitalsByQueryText(request: RequestHospitalModel): ResponseHospitalModel {
+        return db.hospitalDao().getHospitalsByQueryText(request.queryText).toDomainModel()
+    }
+
+    override fun getRandomHospital(): ResponseHospitalModel {
+        return db.hospitalDao().getRandomHospital().toDomainModel()
     }
 }

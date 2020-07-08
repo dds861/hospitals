@@ -7,9 +7,10 @@ import com.dd.hospitals.DIALOG_TAG_LOADING
 import com.dd.hospitals.DIALOG_TAG_SIMPLE
 import com.dd.hospitals.dialog.loading.LoadingDialogProvider
 import com.dd.hospitals.dialog.simple.SimpleDialogProvider
-import com.dd.hospitals.ui.category.CategoryViewModel
-import com.dd.hospitals.ui.makal.MakalViewModel
+import com.dd.hospitals.ui.makal.HospitalViewModel
+import com.dd.hospitals.ui.region.RegionViewModel
 import com.dd.hospitals.ui.search.SearchViewModel
+import com.dd.hospitals.ui.section.SectionViewModel
 import com.dd.hospitals.ui.widget.WidgetViewModel
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
@@ -26,9 +27,11 @@ fun fragmentInjection(fragment: Fragment) = Kodein.Module(name = "FragmentModule
 
     bind<EmaBaseDialogProvider>(tag = DIALOG_TAG_LOADING) with provider { LoadingDialogProvider(instance()) }
 
-    bind<CategoryViewModel>() with provider { CategoryViewModel(instance(), instance()) }
+    bind<RegionViewModel>() with provider { RegionViewModel(instance(), instance()) }
 
-    bind<MakalViewModel>() with provider { MakalViewModel(instance(), instance()) }
+    bind<SectionViewModel>() with provider { SectionViewModel(instance(), instance()) }
+
+    bind<HospitalViewModel>() with provider { HospitalViewModel(instance(), instance()) }
 
     bind<SearchViewModel>() with provider { SearchViewModel(instance(), instance(), instance()) }
 

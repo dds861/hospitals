@@ -11,20 +11,19 @@ import android.widget.Toast
 import com.carmabs.ema.android.ui.EmaRecyclerAdapter
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.dd.domain.model.MakalModel
+import com.dd.domain.model.HospitalModel
 import com.dd.hospitals.R
 import kotlinx.android.synthetic.main.item_makal.view.*
 
-class MakalAdapter(private val context: Context,
-                   override val listItems: MutableList<MakalModel> = mutableListOf(),
-                   private val itemListener: (MakalModel) -> Unit) : EmaRecyclerAdapter<MakalModel>() {
+class HospitalAdapter(private val context: Context,
+                      override val listItems: MutableList<HospitalModel> = mutableListOf(),
+                      private val itemListener: (HospitalModel) -> Unit) : EmaRecyclerAdapter<HospitalModel>() {
     override val layoutItemId: Int = com.dd.hospitals.R.layout.item_makal
 
-    override fun View.bind(item: MakalModel, viewType: Int) {
+    override fun View.bind(item: HospitalModel, viewType: Int) {
         tvBranch.text = item.branch
         tvPhone.text = item.phone
         tvAddress.text = item.address
-        tvSchedule.text = item.schedule
 
         itemListener.invoke(item)
 
@@ -35,7 +34,7 @@ class MakalAdapter(private val context: Context,
             copyToClipboard("Адрес: ${item.address},\n" +
                     "Отдел: ${item.branch},\n" +
                     "Телефон: ${item.phone},\n" +
-                    "График: ${item.schedule}"
+                    "График: ${item.address}"
             )
         }
         ivShare.setOnClickListener {
@@ -45,7 +44,7 @@ class MakalAdapter(private val context: Context,
             shareText("Адрес: ${item.address},\n" +
                     "Отдел: ${item.branch},\n" +
                     "Телефон: ${item.phone},\n" +
-                    "График: ${item.schedule}"
+                    "График: ${item.address}"
             )
         }
         ivWhatsApp.setOnClickListener {
@@ -55,7 +54,7 @@ class MakalAdapter(private val context: Context,
             onClickWhatsApp("Адрес: ${item.address},\n" +
                     "Отдел: ${item.branch},\n" +
                     "Телефон: ${item.phone},\n" +
-                    "График: ${item.schedule}"
+                    "График: ${item.address}"
             )
         }
 

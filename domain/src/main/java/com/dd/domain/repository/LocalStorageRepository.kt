@@ -1,18 +1,17 @@
 package com.dd.domain.repository
 
-import com.dd.domain.model.RequestCategoryModel
-import com.dd.domain.model.RequestMakalModel
-import com.dd.domain.model.ResponseCategoryModel
-import com.dd.domain.model.ResponseMakalModel
+import com.dd.domain.model.*
 
 interface LocalStorageRepository {
-    fun getAllCategories(request: RequestCategoryModel): ResponseCategoryModel
+    fun getAllRegions(request: RequestRegionModel): ResponseRegionModel
 
-    fun getAllMakals(request: RequestMakalModel): ResponseMakalModel
+    fun getAllSections(request: RequestSectionModel): ResponseSectionModel
 
-    fun getMakalsByCategoryId(request: RequestMakalModel): ResponseMakalModel
+    fun getAllHospitals(request: RequestHospitalModel): ResponseHospitalModel
 
-    fun getMakalsByQueryText(request: RequestMakalModel): ResponseMakalModel
+    fun getHospitalsByCategoryId(request: RequestHospitalModel): ResponseHospitalModel
 
-    fun getRandomMakal(): ResponseMakalModel
+    fun getHospitalsByQueryText(request: RequestHospitalModel): ResponseHospitalModel
+
+    fun getRandomHospital(): ResponseHospitalModel
 }

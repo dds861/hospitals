@@ -1,4 +1,4 @@
-package com.dd.hospitals.ui.category
+package com.dd.hospitals.ui.section
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,23 +8,23 @@ import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import kotlinx.android.synthetic.main.fragment_category.*
 import org.kodein.di.generic.instance
 
-class CategoryViewFragment : BaseToolbarsFragment<CategoryState, CategoryViewModel, CategoryNavigator.Navigation>() {
+class SectionViewFragment : BaseToolbarsFragment<SectionState, SectionViewModel, SectionNavigator.Navigation>() {
     /**
      * Default variables
      */
     override val layoutId: Int = com.dd.hospitals.R.layout.fragment_category
-    override val navigator: CategoryNavigator by instance()
-    override val viewModelSeed: CategoryViewModel by instance()
+    override val navigator: SectionNavigator by instance()
+    override val viewModelSeed: SectionViewModel by instance()
 
     /**
      * Custom variables
      */
-    private lateinit var vm: CategoryViewModel
+    private lateinit var vm: SectionViewModel
 
     /**
      * Default functions
      */
-    override fun onInitializedWithToolbarsManagement(viewModel: CategoryViewModel, mainToolbarViewModel: MainToolbarsViewModel) {
+    override fun onInitializedWithToolbarsManagement(viewModel: SectionViewModel, mainToolbarViewModel: MainToolbarsViewModel) {
         vm = viewModel
         setupRecycler()
     }
@@ -32,7 +32,7 @@ class CategoryViewFragment : BaseToolbarsFragment<CategoryState, CategoryViewMod
     override fun onSingleEvent(data: EmaExtraData) {
     }
 
-    override fun onNormal(data: CategoryState) {
+    override fun onNormal(data: SectionState) {
         loadRecyclerViews(data)
     }
 
@@ -52,9 +52,9 @@ class CategoryViewFragment : BaseToolbarsFragment<CategoryState, CategoryViewMod
         rvCategory.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
     }
 
-    private fun loadRecyclerViews(data: CategoryState) {
-        rvCategory.adapter = data.listCategories.toMutableList().let { it ->
-            CategoryAdapter(listItems = it) {
+    private fun loadRecyclerViews(data: SectionState) {
+        rvCategory.adapter = data.listSections.toMutableList().let { it ->
+            SectionAdapter(listItems = it) {
                 vm.onActionCategoryClick(it)
             }
         }
