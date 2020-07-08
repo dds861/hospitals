@@ -6,43 +6,31 @@ import com.dd.domain.model.RequestRegionModel
 import com.dd.domain.usecase.GetLocalRegionUseCase
 import com.dd.hospitals.base.BaseToolbarsViewModel
 import com.dd.hospitals.model.ToolbarModel
-import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import com.dd.hospitals.ui.hospital.HospitalState
+import com.dd.hospitals.ui.main.MainToolbarsViewModel
 
 class RegionViewModel(
         private val resourceManager: ResourceManager,
         private val getLocalRegionUseCase: GetLocalRegionUseCase
 ) : BaseToolbarsViewModel<RegionState, RegionNavigator.Navigation>() {
-    /**
-     * Constants
-     */
-    companion object {
-        const val TELEGRAM_CLICKED = 1
-    }
 
-    /**
-     * Default variables
-     */
+    /** Default variables*/
     override val initialViewState: RegionState = RegionState()
-    /**
-     * Custom variables
-     */
-    /**
-     * Default functions
-     */
+
+    /** Default functions*/
     override fun onConfigureToolbars(mainToolbarsVm: MainToolbarsViewModel) {
-        mainToolbarsVm.onActionUpdateToolbar {
-            it.copy(
-                    toolbarTitle = resourceManager.getToolbarTitle(),
-                    toolbarTitleVisibility = true,
-                    toolbarLogoOrBackVisibility = true,
-                    telegramButton = ToolbarModel.TelegramButton(
-                            visibility = true
-                    ),
-                    searchButton = ToolbarModel.SearchButton(
-                            visibility = true
-                    )
-            )
+        checkDataState { state ->
+            mainToolbarsVm.onActionUpdateToolbar {
+                it.copy(
+                        toolbarTitle = state.sectionName,
+                        telegramButton = ToolbarModel.TelegramButton(
+                                visibility = true
+                        ),
+                        searchButton = ToolbarModel.SearchButton(
+                                visibility = true
+                        )
+                )
+            }
         }
     }
 
@@ -61,17 +49,18 @@ class RegionViewModel(
                 })
     }
 
-    /**
-     * Custom functions
-     */
+    /**Custom functions*/
     fun onActionCategoryClick(regionModel: RegionModel) {
-        navigate(
-                RegionNavigator.Navigation.Makal(
-                        HospitalState(
-                                categoryId = regionModel.id,
-                                categoryTitle = regionModel.name
-                        )
-                )
-        )
+        checkDataState {
+            navigate(
+                    RegionNavigator.Navigation.Makal(
+                            HospitalState(
+                                    sectionId = it.sectionId,
+                                    regionTitle = regionModel.name,
+                                    regionId = regionModel.id
+                            )
+                    )
+            )
+        }
     }
 }

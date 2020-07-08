@@ -4,12 +4,11 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = RegionDbData.TABLE_NAME)
 data class RegionDbData(
         @PrimaryKey
-        @ColumnInfo(name = ID) val id: Long,
-        @ColumnInfo(name = REGION_NAME) val category_text: String
+        @ColumnInfo(name = ID) val id: Int,
+        @ColumnInfo(name = REGION_NAME) val name: String
 ) {
 
     //////////////////////////TABLE///////////////////////////

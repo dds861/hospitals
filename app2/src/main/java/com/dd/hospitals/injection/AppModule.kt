@@ -21,7 +21,7 @@ fun appInjection(application: Application) = Kodein.Module(name = "AppModule") {
 
     bind<GetLocalHospitalUseCase>() with provider { GetLocalHospitalUseCase(instance()) }
 
-    bind<GetLocalHospitalByCategoryIdUseCase>() with provider { GetLocalHospitalByCategoryIdUseCase(instance()) }
+    bind<GetLocalHospitalBySectionIdAndRegionIdUseCase>() with provider { GetLocalHospitalBySectionIdAndRegionIdUseCase(instance()) }
 
     bind<GetLocalHospitalByQueryTextUseCase>() with provider { GetLocalHospitalByQueryTextUseCase(instance()) }
 

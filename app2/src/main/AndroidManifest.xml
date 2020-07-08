@@ -7,9 +7,9 @@
         android:name="com.dd.hospitals.base.MakalApplication"
         android:allowBackup="false"
 
-        android:icon="@drawable/ic_customer_service"
+        android:icon="@drawable/ic_main"
         android:label="@string/application_name"
-        android:roundIcon="@drawable/ic_customer_service"
+        android:roundIcon="@drawable/ic_main"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">

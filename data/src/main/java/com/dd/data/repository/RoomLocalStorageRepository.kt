@@ -80,7 +80,11 @@ class RoomLocalStorageRepository(
     }
 
     override fun getHospitalsByCategoryId(request: RequestHospitalModel): ResponseHospitalModel {
-        return db.hospitalDao().getHospitalsByCategoryId(request.hospitalId).toDomainModel()
+        return db.hospitalDao().getHospitalsBySectionId(request.sectionId).toDomainModel()
+    }
+
+    override fun getHospitalsBySectionIdAndRegionId(request: RequestHospitalModel): ResponseHospitalModel {
+        return db.hospitalDao().getHospitalsBySectionIdAndRegionId(request.sectionId, request.regionId).toDomainModel()
     }
 
     override fun getHospitalsByQueryText(request: RequestHospitalModel): ResponseHospitalModel {

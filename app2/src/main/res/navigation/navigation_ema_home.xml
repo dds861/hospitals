@@ -35,10 +35,14 @@
     <fragment
         android:id="@+id/sectionViewFragment"
         android:name="com.dd.hospitals.ui.section.SectionViewFragment"
-        android:label="SectionViewFragment" >
+        android:label="SectionViewFragment">
         <action
             android:id="@+id/action_sectionViewFragment_to_categoryViewFragment"
-            app:destination="@id/categoryViewFragment" />
+            app:destination="@id/categoryViewFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
 
 

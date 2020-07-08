@@ -11,6 +11,8 @@ interface LocalStorageRepository {
 
     fun getHospitalsByCategoryId(request: RequestHospitalModel): ResponseHospitalModel
 
+    fun getHospitalsBySectionIdAndRegionId(request: RequestHospitalModel): ResponseHospitalModel
+
     fun getHospitalsByQueryText(request: RequestHospitalModel): ResponseHospitalModel
 
     fun getRandomHospital(): ResponseHospitalModel

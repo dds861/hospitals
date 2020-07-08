@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = SectionDbData.TABLE_NAME)
 data class SectionDbData(
         @PrimaryKey
-        @ColumnInfo(name = ID) val id: Long,
+        @ColumnInfo(name = ID) val id: Int,
         @ColumnInfo(name = NAME) val name: String
 ) {
 

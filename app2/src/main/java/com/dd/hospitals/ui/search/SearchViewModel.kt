@@ -1,19 +1,19 @@
 package com.dd.hospitals.ui.search
 
-import com.dd.hospitals.base.BaseToolbarsViewModel
-import com.dd.hospitals.model.ToolbarModel
-import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import com.dd.domain.manager.ResourceManager
 import com.dd.domain.model.HospitalModel
 import com.dd.domain.model.RequestHospitalModel
-import com.dd.domain.usecase.GetLocalHospitalByCategoryIdUseCase
 import com.dd.domain.usecase.GetLocalHospitalByQueryTextUseCase
+import com.dd.domain.usecase.GetLocalHospitalBySectionIdAndRegionIdUseCase
+import com.dd.hospitals.base.BaseToolbarsViewModel
+import com.dd.hospitals.model.ToolbarModel
+import com.dd.hospitals.ui.main.MainToolbarsViewModel
 import java.util.*
 
 class SearchViewModel(
         val resourceManager: ResourceManager,
-        private val getLocalHospitalByCategoryIdUseCase: GetLocalHospitalByCategoryIdUseCase,
-        private val getLocalHospitalByQueryTextUseCase: GetLocalHospitalByQueryTextUseCase
+        private val localHospitalBySectionIdAndRegionIdUseCase: GetLocalHospitalBySectionIdAndRegionIdUseCase,
+        private val localHospitalByQueryTextUseCase: GetLocalHospitalByQueryTextUseCase
 ) : BaseToolbarsViewModel<SearchState, SearchNavigator.Navigation>() {
     /**
      * Default variables
@@ -29,7 +29,13 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalHospitalByCategoryIdUseCase.execute(RequestHospitalModel(hospitalId = it.categoryId))
+                        val responseMakalModel =
+                                localHospitalBySectionIdAndRegionIdUseCase.execute(
+                                        RequestHospitalModel(
+                                                sectionId = it.categoryId,
+                                                regionId = it.regionId
+                                        )
+                                )
                         updateToNormalState {
                             copy(
                                     listHospitals = responseMakalModel.list
@@ -69,7 +75,7 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
+                        val responseMakalModel = localHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
                         updateToNormalState {
                             copy(
                                     listHospitals = filterToolbarHintsByQueryText(queryText, responseMakalModel.list),
@@ -91,7 +97,7 @@ class SearchViewModel(
         checkDataState {
             executeUseCaseWithException(
                     {
-                        val responseMakalModel = getLocalHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
+                        val responseMakalModel = localHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
                         updateToNormalState {
                             copy(
                                     listHospitals = filterToolbarMakalsByQueryText(queryText, responseMakalModel.list),

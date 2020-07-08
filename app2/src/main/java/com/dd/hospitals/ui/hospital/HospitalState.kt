@@ -7,7 +7,8 @@ import com.dd.domain.model.HospitalModel
 
 data class HospitalState(
         val default: String = STRING_EMPTY,
-        val categoryId: Int = INT_ZERO,
+        val sectionId: Int = INT_ZERO,
+        val regionId: Int = INT_ZERO,
         val listHospitals: List<HospitalModel> = listOf(),
-        val categoryTitle: String = STRING_EMPTY
+        val regionTitle: String = STRING_EMPTY
 ) : EmaBaseState

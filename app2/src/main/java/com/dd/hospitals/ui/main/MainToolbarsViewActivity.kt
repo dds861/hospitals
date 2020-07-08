@@ -149,10 +149,10 @@ class MainToolbarsViewActivity : BaseActivity(), EmaView<HomeToolbarState, MainT
 
     private fun updateToolbar(data: ToolbarModel) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            when (destination.id == R.id.categoryViewFragment) {
+            when (destination.id == R.id.sectionViewFragment) {
                 //Logo pressed
                 true -> {
-                    ivToolbarLogoOrBack.setImageDrawable(resources.getDrawable(R.drawable.ic_customer_service, null))
+                    ivToolbarLogoOrBack.setImageDrawable(resources.getDrawable(R.drawable.ic_main, null))
                     ivToolbarLogoOrBack.setOnClickListener { }
                 }
                 //Back pressed

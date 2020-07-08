@@ -21,7 +21,8 @@ class HospitalAdapter(private val context: Context,
     override val layoutItemId: Int = com.dd.hospitals.R.layout.item_card
 
     override fun View.bind(item: HospitalModel, viewType: Int) {
-        tvSubTitle.text = item.branch
+        tvTitle.text = item.branch
+        tvSubTitle.text = item.category
         tvPhone.text = item.phone
         tvAddress.text = item.address
 

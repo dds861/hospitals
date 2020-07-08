@@ -4,19 +4,18 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity(tableName = HospitalDbData.TABLE_NAME)
 data class HospitalDbData(
 
         @PrimaryKey
-        @ColumnInfo(name = ID) val id: Long,
-        @ColumnInfo(name = REGION_ID) val category_id: Int,
-        @ColumnInfo(name = CATEGORY_ID) val makal_sort_id: Int,
-        @ColumnInfo(name = REGION) val makal_text: String,
-        @ColumnInfo(name = CATEGORY) val makal_branch: String,
-        @ColumnInfo(name = BRANCH) val makal_person: String?,
-        @ColumnInfo(name = PHONE) val makal_phone: String?,
-        @ColumnInfo(name = ADDRESS) val makal_address: String?
+        @ColumnInfo(name = ID) val id: Int,
+        @ColumnInfo(name = REGION_ID) val region_id: Int,
+        @ColumnInfo(name = CATEGORY_ID) val category_id: Int,
+        @ColumnInfo(name = REGION) val region: String,
+        @ColumnInfo(name = CATEGORY) val category: String,
+        @ColumnInfo(name = BRANCH) val branch: String,
+        @ColumnInfo(name = PHONE) val phone: String?,
+        @ColumnInfo(name = ADDRESS) val address: String?
 ) {
 
     //////////////////////////TABLE///////////////////////////

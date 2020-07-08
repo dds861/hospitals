@@ -33,15 +33,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="г. Нур-Султан, ул. Сейфуллина 22" />
 
-        <ImageView
-            android:id="@+id/tvTitleIcon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingEnd="16dp"
-            android:src="@drawable/ic_location_on_black_24dp"
-            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tvTitle" />
 
         <TextView
             android:id="@+id/tvSubTitle"

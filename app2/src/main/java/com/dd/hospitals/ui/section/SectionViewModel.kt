@@ -67,7 +67,10 @@ class SectionViewModel(
     fun onActionCategoryClick(sectionModel: SectionModel) {
         navigate(
                 SectionNavigator.Navigation.ToRegion(
-                        RegionState(sectionIdSelected = sectionModel.id)
+                        RegionState(
+                                sectionId = sectionModel.id,
+                                sectionName = sectionModel.name
+                        )
                 )
         )
     }
