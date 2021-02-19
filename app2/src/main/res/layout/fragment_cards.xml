@@ -15,6 +15,7 @@
         android:layout_margin="8dp"
         android:focusable="true"
         android:focusableInTouchMode="true"
+        android:visibility="gone"
         ads:cardBackgroundColor="@color/primary"
         ads:layout_constraintLeft_toLeftOf="parent"
         ads:layout_constraintRight_toRightOf="parent"

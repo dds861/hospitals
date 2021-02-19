@@ -25,9 +25,6 @@ class RegionViewModel(
                         toolbarTitle = state.sectionName,
                         telegramButton = ToolbarModel.TelegramButton(
                                 visibility = true
-                        ),
-                        searchButton = ToolbarModel.SearchButton(
-                                visibility = true
                         )
                 )
             }

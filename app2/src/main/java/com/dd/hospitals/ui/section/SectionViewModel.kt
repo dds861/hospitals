@@ -40,7 +40,7 @@ class SectionViewModel(
                             visibility = true
                     ),
                     searchButton = ToolbarModel.SearchButton(
-                            visibility = true
+                            visibility = false
                     )
             )
         }

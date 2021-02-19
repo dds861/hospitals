@@ -59,7 +59,7 @@ class SearchViewModel(
                         searchButton = ToolbarModel.SearchButton(
                                 visibility = true,
                                 setOnQueryTextFocusChangeListener = {
-                                    onActionFilterToolbarHintsByQueryText(it)
+                                    filterHintsByText(it)
                                 }
                         )
                 )
@@ -70,30 +70,23 @@ class SearchViewModel(
     /**
      * Custom functions
      */
-    private fun onActionFilterToolbarHintsByQueryText(queryText: String) {
-        //load results of hints by keyword
+    private fun filterHintsByText(queryText: String) {
         checkDataState {
-            executeUseCaseWithException(
-                    {
-                        val responseMakalModel = localHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
-                        updateToNormalState {
-                            copy(
-                                    listHospitals = filterToolbarHintsByQueryText(queryText, responseMakalModel.list),
-                                    adapterType = SearchState.AdapterType.HINT
-                            )
-                        }
-                    },
-                    { e ->
-                        updateToErrorState(e)
-                    })
+            executeUseCase {
+                val response = localHospitalByQueryTextUseCase.execute(RequestHospitalModel(queryText = queryText))
+                updateToNormalState {
+                    copy(
+                            listHospitals = filterToolbarHintsByQueryText(queryText, response.list),
+                            adapterType = SearchState.AdapterType.HINT
+                    )
+                }
+            }
         }
     }
 
-    fun onActionFilterToolbarMakalsByQueryText(queryText: String) {
-        mainToolbarsVm.onActionShowInterstitialAd()
-        //update text on searchView
+    fun getHospitalsByQueryText(queryText: String) {
+//        mainToolbarsVm.onActionShowInterstitialAd()
         mainToolbarsVm.onActionSearchViewText(queryText)
-        //load makals to recyclerview
         checkDataState {
             executeUseCaseWithException(
                     {

@@ -53,9 +53,6 @@ class HospitalViewModel(
                         toolbarTitle = state.regionTitle,
                         telegramButton = ToolbarModel.TelegramButton(
                                 visibility = true
-                        ),
-                        searchButton = ToolbarModel.SearchButton(
-                                visibility = true
                         )
                 )
             }
